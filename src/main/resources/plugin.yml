@@ -1,7 +1,7 @@
-name: Staff
+name: ${project.name}
 version: ${project.version}
-main: cl.bgmp.staff.Staff
+main: cl.bgmp.vanguard.Vanguard
 api-version: "1.16"
-authors: [BGMP]
+authors: [BGMP, Teszeo]
 description: Staff mode.
-website: https://unicraft.cl/
+website: ${project.url}
