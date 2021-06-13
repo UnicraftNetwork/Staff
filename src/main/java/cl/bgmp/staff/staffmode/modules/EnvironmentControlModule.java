@@ -40,7 +40,7 @@ public class EnvironmentControlModule extends StaffModeModule {
     event.setCancelled(true);
   }
 
-  @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+  @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
   public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
     Player player = event.getPlayer();
     if (!this.staffMode.isEnabledFor(player)) return;
@@ -106,7 +106,7 @@ public class EnvironmentControlModule extends StaffModeModule {
     event.setCancelled(true);
   }
 
-  @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+  @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
   public void onPlayerBucketFill(PlayerBucketFillEvent event) {
     Player player = event.getPlayer();
     if (!this.staffMode.isEnabledFor(player)) return;
@@ -114,7 +114,7 @@ public class EnvironmentControlModule extends StaffModeModule {
     event.setCancelled(true);
   }
 
-  @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+  @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
   public void onPlayerBucketEmpty(PlayerBucketEmptyEvent event) {
     Player player = event.getPlayer();
     if (!this.staffMode.isEnabledFor(player)) return;
@@ -122,7 +122,7 @@ public class EnvironmentControlModule extends StaffModeModule {
     event.setCancelled(true);
   }
 
-  @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+  @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
   public void onVehicleEnter(VehicleEnterEvent event) {
     Entity entity = event.getEntered();
     if (!(entity instanceof Player)) return;
