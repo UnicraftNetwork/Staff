@@ -17,11 +17,11 @@ public class MuteChatCommand {
 
   @Command(
       aliases = {"mutechat"},
-      desc = "Silencia el chat.",
+      desc = "Silence the chat.",
       max = 0)
   @CommandPermissions(Permissions.MUTE_CHAT)
   @CommandScopes({"player", "console"})
-  public void staffMode(CommandContext args, CommandSender sender) {
+  public void muteChat(CommandContext args, CommandSender sender) {
     this.mcm.muteChatBy(sender);
   }
 }

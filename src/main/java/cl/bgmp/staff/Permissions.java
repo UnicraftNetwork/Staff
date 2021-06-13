@@ -9,4 +9,5 @@ public interface Permissions {
   String CLEAR_CHAT = ROOT + ".clearchat";
   String INVSEE = ROOT + ".invsee";
   String MUTE_CHAT = ROOT + ".mutechat";
+  String FREEZE = ROOT + ".freeze";
 }

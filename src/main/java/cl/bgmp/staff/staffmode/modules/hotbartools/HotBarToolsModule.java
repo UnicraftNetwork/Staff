@@ -4,6 +4,7 @@ import cl.bgmp.butils.gui.GUIButton;
 import cl.bgmp.staff.staffmode.StaffMode;
 import cl.bgmp.staff.staffmode.modules.StaffModeModule;
 import cl.bgmp.staff.staffmode.modules.hotbartools.hotbarbuttons.CompassButton;
+import cl.bgmp.staff.staffmode.modules.hotbartools.hotbarbuttons.FreezeButton;
 import cl.bgmp.staff.staffmode.modules.hotbartools.hotbarbuttons.RabbitFootButton;
 import cl.bgmp.staff.staffmode.modules.hotbartools.hotbarbuttons.RandomTeleportButton;
 import cl.bgmp.staff.staffmode.modules.hotbartools.hotbarbuttons.VanishButton;
@@ -28,7 +29,8 @@ public class HotBarToolsModule extends StaffModeModule {
       MenuButton menuButton,
       RabbitFootButton rabbitFootButton,
       RandomTeleportButton randomTeleportButton,
-      VanishButton vanishButton) {
+      VanishButton vanishButton,
+      FreezeButton freezeButton) {
     this.staffMode = staffMode;
 
     this.buttons =
@@ -38,6 +40,7 @@ public class HotBarToolsModule extends StaffModeModule {
             .add(rabbitFootButton)
             .add(randomTeleportButton)
             .add(vanishButton)
+            .add(freezeButton)
             .build();
   }
 

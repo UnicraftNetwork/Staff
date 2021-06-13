@@ -19,7 +19,7 @@ public class StaffModeCommand {
 
   @Command(
       aliases = {"staff", "mod"},
-      desc = "Habilita el modo staff.",
+      desc = "Turn on staff mode.",
       max = 0)
   @CommandPermissions(Permissions.STAFF_MODE_USE)
   @CommandScopes("player")
@@ -28,10 +28,10 @@ public class StaffModeCommand {
 
     if (this.staffMode.isEnabledFor(player)) {
       this.staffMode.disableFor(player);
-      player.sendMessage(ChatColor.RED + "Ya no estás en modo staff.");
+      player.sendMessage(ChatColor.RED + "You're no longer in staff mode.");
     } else {
       this.staffMode.enableFor(player);
-      player.sendMessage(ChatColor.GREEN + "Ahora estás en modo staff.");
+      player.sendMessage(ChatColor.GREEN + "You're now in staff mode.");
     }
   }
 }

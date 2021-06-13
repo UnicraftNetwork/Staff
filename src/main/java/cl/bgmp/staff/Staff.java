@@ -11,6 +11,7 @@ import cl.bgmp.minecraft.util.commands.exceptions.ScopeMismatchException;
 import cl.bgmp.minecraft.util.commands.exceptions.WrappedCommandException;
 import cl.bgmp.minecraft.util.commands.injection.SimpleInjector;
 import cl.bgmp.staff.commands.ClearChatCommand;
+import cl.bgmp.staff.commands.FreezeCommand;
 import cl.bgmp.staff.commands.InventorySeeCommand;
 import cl.bgmp.staff.commands.MuteChatCommand;
 import cl.bgmp.staff.commands.StaffModeCommand;
@@ -21,6 +22,7 @@ import cl.bgmp.staff.staffmode.modules.ClearChatModule;
 import cl.bgmp.staff.staffmode.modules.EnvironmentControlModule;
 import cl.bgmp.staff.staffmode.modules.MuteChatModule;
 import cl.bgmp.staff.staffmode.modules.VanishModule;
+import cl.bgmp.staff.staffmode.modules.freeze.PlayerFreezeModule;
 import cl.bgmp.staff.staffmode.modules.hotbartools.HotBarToolsModule;
 import cl.bgmp.staff.staffmode.modules.inventorymemory.InventoryMemoryModule;
 import cl.bgmp.staff.staffmode.modules.inventorysee.InventorySeeModule;
@@ -46,6 +48,7 @@ public final class Staff extends JavaPlugin {
   @Inject private InventorySeeModule ism;
   @Inject private ClearChatModule ccm;
   @Inject private MuteChatModule mcm;
+  @Inject private PlayerFreezeModule pfm;
 
   @Override
   public void onEnable() {
@@ -60,6 +63,7 @@ public final class Staff extends JavaPlugin {
     smm.registerModule(ism);
     smm.registerModule(ccm);
     smm.registerModule(mcm);
+    smm.registerModule(pfm);
     smm.loadModules();
 
     this.registerCommands();
@@ -75,6 +79,7 @@ public final class Staff extends JavaPlugin {
     this.registerCommand(InventorySeeCommand.class, this.ism);
     this.registerCommand(ClearChatCommand.class, this.ccm);
     this.registerCommand(MuteChatCommand.class, this.mcm);
+    this.registerCommand(FreezeCommand.class, this.pfm);
   }
 
   private void inject() {

@@ -20,12 +20,12 @@ public class InventorySeeCommand {
 
   @Command(
       aliases = {"invsee"},
-      desc = "Revisa el inventario de un jugador.",
+      desc = "Check a player's inventory.",
       min = 1,
       max = 1)
   @CommandPermissions(Permissions.INVSEE)
   @CommandScopes("player")
-  public void staffMode(CommandContext args, CommandSender sender) {
+  public void inventorySee(CommandContext args, CommandSender sender) {
     final String viewedPlayerName = args.getString(0);
     final Player viewedPlayer = Bukkit.getPlayer(viewedPlayerName);
 

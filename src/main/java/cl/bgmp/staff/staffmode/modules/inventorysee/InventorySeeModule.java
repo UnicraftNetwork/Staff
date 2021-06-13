@@ -2,8 +2,10 @@ package cl.bgmp.staff.staffmode.modules.inventorysee;
 
 import cl.bgmp.butils.items.ItemBuilder;
 import cl.bgmp.staff.staffmode.modules.StaffModeModule;
+import cl.bgmp.staff.staffmode.modules.freeze.PlayerFreezeModule;
 import cl.bgmp.staff.util.Potions;
 import com.google.common.collect.Lists;
+import com.google.inject.Inject;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.HashMap;
@@ -50,7 +52,12 @@ public class InventorySeeModule extends StaffModeModule {
   protected final HashMap<String, Instant> updateQueue = new HashMap<>();
   protected BukkitRunnable checkerTask;
 
-  public InventorySeeModule() {}
+  private PlayerFreezeModule pfm;
+
+  @Inject
+  public InventorySeeModule(PlayerFreezeModule pfm) {
+    this.pfm = pfm;
+  }
 
   private void newCheckerTask() {
     this.checkerTask =
@@ -236,7 +243,7 @@ public class InventorySeeModule extends StaffModeModule {
   }
 
   public boolean canPreviewInventory(Player viewer) {
-    return staffMode.isEnabledFor(viewer);
+    return staffMode.isEnabledFor(viewer) && !pfm.isPlayerFreezing(viewer);
   }
 
   protected void scheduleCheck(Player updater) {
